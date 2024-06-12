@@ -59,3 +59,32 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
+window.onload = setTimeout(function() {
+  let box = document.querySelector("#stored");
+  let text = "Try moving me";
+  let typingSpeed = 120;
+  let delayBetween = 400;
+  let deletingSpeed = 120;
+
+  function typeText() {
+    for (let i = 0; i <= text.length; i++) {
+      setTimeout(function() {
+        box.textContent = text.substring(0, i);
+      }, i * typingSpeed);
+    }
+  }
+
+  function deleteText() {
+    for (let i = 0; i <= text.length; i++) {
+      setTimeout(function() {
+        box.textContent = text.substring(0, text.length - i);
+      }, i * deletingSpeed);
+    }
+  }
+
+  typeText();
+  setTimeout(function() {
+    deleteText();
+  }, typingSpeed * text.length + delayBetween);
+}, 300)
