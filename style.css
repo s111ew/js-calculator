@@ -70,7 +70,6 @@ body {
     text-indent: -4px;
     font-size: 20px;
 }
-
 .glass{
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
@@ -97,18 +96,18 @@ button:hover{
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 }
 button:active{
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
 }
 
 .operator,
 .utility{
-    background: linear-gradient(135deg, rgba(228, 155, 66, 0.2),rgba(230, 161, 12, 0.4));
+    background: linear-gradient(135deg, rgba(228, 155, 66, 0.3),rgba(230, 161, 12, 0.5));
 }
 .operator:hover,
 .utility:hover{
-    background: linear-gradient(135deg, rgba(228, 155, 66, 0.4),rgba(230, 161, 12, 0.6));
+    background: linear-gradient(135deg, rgba(228, 155, 66, 0.5),rgba(230, 161, 12, 0.7));
 }
 .operator:active,
 .utility:active{
-    background: linear-gradient(135deg, rgba(228, 155, 66, 0.6),rgba(230, 161, 12, 0.7));
+    background: linear-gradient(135deg, rgba(228, 155, 66, 0.7),rgba(230, 161, 12, 0.9));
 }
