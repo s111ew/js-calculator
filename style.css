@@ -3,12 +3,21 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    width: 100vh;
+    width: 100%;
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 25px;
+    background-image: url(./images/calcBackgroundLQ.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center center fixed;
+   color: rgba(255, 255, 255, 0.6);
+   text-shadow: 0 1.3px rgba(60, 57, 57, 0.2);
+   user-select: none;
+
 }
 #calcContainer{
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,17 +26,18 @@ body {
     box-sizing: border-box;
     width: 320px;
     height: auto;
-    padding: 50px;
-
-    background-color: aqua;
+    padding: 25px 50px 25px 50px;
     border-radius: 5%/3%;
+    cursor: move;
+    z-index: 0;
 }
 #display{
-    background-color: grey;
     width: 265px;
-    height: 50px;
+    height: 100px;
     margin-bottom: 20px;
     border-radius: 2%/12%;
+    z-index: 1;
+    cursor: default;
 }
 #btnContainer{
     display: flex;
@@ -35,7 +45,8 @@ body {
     width: 265px;
     gap: 5px;
     text-align: center;
-    background-color: lightgoldenrodyellow;
+    z-index: 1;
+    cursor: default;
 }
 .btn{
     all: unset;
@@ -44,9 +55,60 @@ body {
     padding: 5px;
     width: 50px;
     height: 50px;
-    background-color: lightgray;
+    z-index: 1;
+    cursor: pointer;
 }
 .long{
     flex-grow: 1;
     border-radius: 25%/50%;
+}
+#multiply{
+    font-size: 18px;
+    text-shadow: 0 1.7px rgba(60, 57, 57, 0.2);
+}
+#del{
+    text-indent: -4px;
+    font-size: 20px;
+}
+
+.glass{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.glassBtn{
+    background: linear-gradient(135deg, rgba(151, 132, 132, 0.1),rgba(151, 132, 132, 0.3));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.25);
+}
+.glassDisplay{
+    background: rgba(59, 55, 55, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+button:hover{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+button:active{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+}
+
+.operator,
+.utility{
+    background: linear-gradient(135deg, rgba(228, 155, 66, 0.2),rgba(230, 161, 12, 0.4));
+}
+.operator:hover,
+.utility:hover{
+    background: linear-gradient(135deg, rgba(228, 155, 66, 0.4),rgba(230, 161, 12, 0.6));
+}
+.operator:active,
+.utility:active{
+    background: linear-gradient(135deg, rgba(228, 155, 66, 0.6),rgba(230, 161, 12, 0.7));
 }
