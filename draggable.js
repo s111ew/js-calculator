@@ -63,9 +63,9 @@ function dragElement(elmnt) {
 window.onload = setTimeout(function() {
   let box = document.querySelector("#stored");
   let text = "Try moving me";
-  let typingSpeed = 120;
-  let delayBetween = 400;
-  let deletingSpeed = 120;
+  let typingSpeed = 90;
+  let delayBetween = 550;
+  let deletingSpeed = 90;
 
   function typeText() {
     for (let i = 0; i <= text.length; i++) {
