@@ -11,23 +11,36 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) return "Error"; // Division by zero check
+    if (b === 0) return "Error";
     return parseFloat(a) / parseFloat(b);
 }
 
 function operate(numFirst, operand, numSecond) {
     switch (operand) {
         case "multiply":
-            return multiply(numFirst, numSecond);
+            return formatResult(multiply(numFirst, numSecond));
         case "divide":
-            return divide(numFirst, numSecond);
+            return formatResult(divide(numFirst, numSecond));
         case "add":
-            return add(numFirst, numSecond);
+            return formatResult(add(numFirst, numSecond));
         case "subtract":
-            return subtract(numFirst, numSecond);
+            return formatResult(subtract(numFirst, numSecond));
         default:
             return "Error";
     }
+}
+
+function formatResult(result) {
+    result = result.toString();
+    if (result.includes('.')) {
+        if (result.length > 9) {
+            result = parseFloat(result).toPrecision(9).toString();
+            if (result.length > 9) result = result.slice(0, 9);
+        }
+    } else {
+        if (result.length > 9) result = result.slice(0, 9);
+    }
+    return result;
 }
 
 let firstNumber = "";
@@ -84,7 +97,9 @@ allButtons.forEach(btn => {
                 operation = "";
             }
         } else {
-            currentDisplay.textContent += btn.textContent;
+            if (currentDisplay.textContent.length < 9) {
+                currentDisplay.textContent += btn.textContent;
+            }
         }
     });
 });
