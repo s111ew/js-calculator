@@ -128,3 +128,11 @@ button:active{
 .utility:active{
     background: linear-gradient(135deg, rgba(228, 155, 66, 0.7),rgba(230, 161, 12, 0.9));
 }
+footer{
+    align-self: flex-end;
+    font-size: 12px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding-bottom: 6px;
+}
