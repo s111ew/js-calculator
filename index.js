@@ -11,7 +11,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) return "Error";
+    if (b == 0) {return "Error"}
     return parseFloat(a) / parseFloat(b);
 }
 
@@ -38,7 +38,7 @@ function formatResult(result) {
             if (result.length > 9) result = result.slice(0, 9);
         }
     } else {
-        if (result.length > 9) result = result.slice(0, 9);
+        if (result.length > 9) result = "Error"
     }
     return result;
 }
@@ -79,8 +79,14 @@ allButtons.forEach(btn => {
             secondNumber = "";
             operation = "";
         } else if (btn.id === "del") {
+            if(currentDisplay.textContent === "Error") {
+                currentDisplay.textContent = "";
+            }
             currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
         } else if (btn.id === "divide" || btn.id === "multiply" || btn.id === "add" || btn.id === "subtract") {
+            if(currentDisplay.textContent === "Error") {
+                currentDisplay.textContent = "";
+            }
             if (currentDisplay.textContent && !operation) {
                 operation = btn.id;
                 firstNumber = currentDisplay.textContent;
@@ -88,6 +94,9 @@ allButtons.forEach(btn => {
                 currentDisplay.textContent = "";
             }
         } else if (btn.id === "equals") {
+            if(currentDisplay.textContent === "Error") {
+                currentDisplay.textContent = "";
+            }
             if (operation && currentDisplay.textContent) {
                 secondNumber = currentDisplay.textContent;
                 currentDisplay.textContent = operate(firstNumber, operation, secondNumber);
@@ -97,6 +106,9 @@ allButtons.forEach(btn => {
                 operation = "";
             }
         } else {
+            if(currentDisplay.textContent === "Error") {
+                currentDisplay.textContent = "";
+            }
             if (currentDisplay.textContent.length < 9) {
                 currentDisplay.textContent += btn.textContent;
             }
