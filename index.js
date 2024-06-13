@@ -1,40 +1,38 @@
-
-function add (a, b) {
+function add(a, b) {
     return parseFloat(a) + parseFloat(b);
 }
 
-function subtract (a, b) {
+function subtract(a, b) {
     return parseFloat(a) - parseFloat(b);
 }
 
-function multiply (a, b) {
+function multiply(a, b) {
     return parseFloat(a) * parseFloat(b);
 }
 
-function divide (a, b) {
+function divide(a, b) {
+    if (b === 0) return "Error"; // Division by zero check
     return parseFloat(a) / parseFloat(b);
 }
 
-function operate (numFirst, operand, numSecond) {
-    if (operand === "multiply") {
+function operate(numFirst, operand, numSecond) {
+    switch (operand) {
+        case "multiply":
             return multiply(numFirst, numSecond);
-    } else if (operand === "divide") {
-        if(parseFloat(numFirst) === 0 || parseFloat(numSecond) === 0) {
-            return "Error"
-        } else {
+        case "divide":
             return divide(numFirst, numSecond);
-        } 
-    } else if (operand === "add") {
-        return add(numFirst, numSecond);
-    } else if (operand === "subtract") {
-        return divide(numFirst, numSecond)
+        case "add":
+            return add(numFirst, numSecond);
+        case "subtract":
+            return subtract(numFirst, numSecond);
+        default:
+            return "Error";
     }
 }
 
 let firstNumber = "";
 let operation = "";
 let secondNumber = "";
-let currentNumber = "";
 
 let storedDisplay = document.querySelector("#stored");
 let currentDisplay = document.querySelector("#current");
@@ -61,33 +59,34 @@ let allButtons = document.querySelectorAll(".btn");
 
 allButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-        if(btn.id === "ac") {
-            currentDisplay.textContent = ""
-            storedDisplay.textContent = ""
-            firstNumber = ""
-            secondNumber = ""
+        if (btn.id === "ac") {
+            currentDisplay.textContent = "";
+            storedDisplay.textContent = "";
+            firstNumber = "";
+            secondNumber = "";
+            operation = "";
         } else if (btn.id === "del") {
-            currentDisplay.textContent = currentDisplay.textContent.slice(0, -1)
+            currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
         } else if (btn.id === "divide" || btn.id === "multiply" || btn.id === "add" || btn.id === "subtract") {
-            if (currentDisplay.textContent) {
-                operation = btn.textContent;
+            if (currentDisplay.textContent && !operation) {
+                operation = btn.id;
+                firstNumber = currentDisplay.textContent;
                 storedDisplay.textContent = firstNumber + " " + btn.textContent;
                 currentDisplay.textContent = "";
             }
         } else if (btn.id === "equals") {
-            if (storedDisplay.textContent && currentDisplay.textContent) {
-                currentDisplay.textContent = operate (firstNumber, operation, secondNumber);
-                storedDisplay = ""
-            } else if (storedDisplay.textContent) {
-                currentDisplay.textContent = storedDisplay.textContent.slice(0, -2)
-                storedDisplay.textContent = ""
+            if (operation && currentDisplay.textContent) {
+                secondNumber = currentDisplay.textContent;
+                currentDisplay.textContent = operate(firstNumber, operation, secondNumber);
+                storedDisplay.textContent = "";
+                firstNumber = currentDisplay.textContent;
+                secondNumber = "";
+                operation = "";
             }
         } else {
             currentDisplay.textContent += btn.textContent;
-            firstNumber = currentDisplay.textContent
         }
-    }
-)
+    });
 });
 
 document.addEventListener('keydown', (e) => {
