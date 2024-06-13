@@ -27,7 +27,7 @@ body {
     height: auto;
     padding: 25px 50px 25px 50px;
     border-radius: 5%/3%;
-    cursor: move;
+    cursor: default;
     z-index: 0;
 }
 #display{
@@ -117,15 +117,15 @@ button:active{
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
 }
 .operator,
-.utility{
+.utility {
     background: linear-gradient(135deg, rgba(228, 155, 66, 0.3),rgba(230, 161, 12, 0.5));
 }
 .operator:hover,
-.utility:hover{
+.utility:hover {
     background: linear-gradient(135deg, rgba(228, 155, 66, 0.5),rgba(230, 161, 12, 0.7));
 }
 .operator:active,
-.utility:active{
+.utility:active {
     background: linear-gradient(135deg, rgba(228, 155, 66, 0.7),rgba(230, 161, 12, 0.9));
 }
 #prompt{
