@@ -105,6 +105,10 @@ allButtons.forEach(btn => {
                 secondNumber = "";
                 operation = "";
             }
+        } else if (btn.id === "decimal") {
+            if (!currentDisplay.textContent.includes(".")) {
+                currentDisplay.textContent += btn.textContent;
+            }
         } else {
             if(currentDisplay.textContent === "Error" || currentDisplay.textContent === "Too Big!") {
                 currentDisplay.textContent = "";
