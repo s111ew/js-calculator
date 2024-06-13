@@ -38,7 +38,7 @@ function formatResult(result) {
             if (result.length > 9) result = result.slice(0, 9);
         }
     } else {
-        if (result.length > 9) result = "Error"
+        if (result.length > 9) result = "Too Big!"
     }
     return result;
 }
@@ -79,12 +79,12 @@ allButtons.forEach(btn => {
             secondNumber = "";
             operation = "";
         } else if (btn.id === "del") {
-            if(currentDisplay.textContent === "Error") {
+            if(currentDisplay.textContent === "Error" || currentDisplay.textContent === "Too Big!") {
                 currentDisplay.textContent = "";
             }
             currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
         } else if (btn.id === "divide" || btn.id === "multiply" || btn.id === "add" || btn.id === "subtract") {
-            if(currentDisplay.textContent === "Error") {
+            if(currentDisplay.textContent === "Error" || currentDisplay.textContent === "Too Big!") {
                 currentDisplay.textContent = "";
             }
             if (currentDisplay.textContent && !operation) {
@@ -94,7 +94,7 @@ allButtons.forEach(btn => {
                 currentDisplay.textContent = "";
             }
         } else if (btn.id === "equals") {
-            if(currentDisplay.textContent === "Error") {
+            if(currentDisplay.textContent === "Error" || currentDisplay.textContent === "Too Big!") {
                 currentDisplay.textContent = "";
             }
             if (operation && currentDisplay.textContent) {
@@ -106,7 +106,7 @@ allButtons.forEach(btn => {
                 operation = "";
             }
         } else {
-            if(currentDisplay.textContent === "Error") {
+            if(currentDisplay.textContent === "Error" || currentDisplay.textContent === "Too Big!") {
                 currentDisplay.textContent = "";
             }
             if (currentDisplay.textContent.length < 9) {

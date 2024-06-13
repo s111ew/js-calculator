@@ -45,12 +45,14 @@ body {
 }
 #stored{
     width: 230px;
+    height: 21px;
     text-align: end;
     font-size: 18px;
     font-family: Helvetica, Arial, sans-serif;
 }
 #current{
     width: 230px;
+    height: 38px;
     text-align: end;
     font-size: 32px;
     font-family: Helvetica, Arial, sans-serif;
