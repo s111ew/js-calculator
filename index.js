@@ -15,12 +15,26 @@ function divide (a, b) {
     return parseFloat(a) / parseFloat(b);
 }
 
-let currentOperation = {
-    firstNumber: "",
-    operation: "",
-    secondNumber: "",
+function operate (numFirst, operand, numSecond) {
+    if (operand === "multiply") {
+            return multiply(numFirst, numSecond);
+    } else if (operand === "divide") {
+        if(parseFloat(numFirst) === 0 || parseFloat(numSecond) === 0) {
+            return "Error"
+        } else {
+            return divide(numFirst, numSecond);
+        } 
+    } else if (operand === "add") {
+        return add(numFirst, numSecond);
+    } else if (operand === "subtract") {
+        return divide(numFirst, numSecond)
+    }
 }
-let currentNumber ="";
+
+let firstNumber = "";
+let operation = "";
+let secondNumber = "";
+let currentNumber = "";
 
 let storedDisplay = document.querySelector("#stored");
 let currentDisplay = document.querySelector("#current");
@@ -44,6 +58,37 @@ let decimalButton = document.querySelector("#decimal");
 let equalsButton = document.querySelector("#equals");
 
 let allButtons = document.querySelectorAll(".btn");
+
+allButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        if(btn.id === "ac") {
+            currentDisplay.textContent = ""
+            storedDisplay.textContent = ""
+            firstNumber = ""
+            secondNumber = ""
+        } else if (btn.id === "del") {
+            currentDisplay.textContent = currentDisplay.textContent.slice(0, -1)
+        } else if (btn.id === "divide" || btn.id === "multiply" || btn.id === "add" || btn.id === "subtract") {
+            if (currentDisplay.textContent) {
+                operation = btn.textContent;
+                storedDisplay.textContent = firstNumber + " " + btn.textContent;
+                currentDisplay.textContent = "";
+            }
+        } else if (btn.id === "equals") {
+            if (storedDisplay.textContent && currentDisplay.textContent) {
+                currentDisplay.textContent = operate (firstNumber, operation, secondNumber);
+                storedDisplay = ""
+            } else if (storedDisplay.textContent) {
+                currentDisplay.textContent = storedDisplay.textContent.slice(0, -2)
+                storedDisplay.textContent = ""
+            }
+        } else {
+            currentDisplay.textContent += btn.textContent;
+            firstNumber = currentDisplay.textContent
+        }
+    }
+)
+});
 
 document.addEventListener('keydown', (e) => {
     const keyMap = {
