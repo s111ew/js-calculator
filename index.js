@@ -110,7 +110,7 @@ allButtons.forEach(btn => {
                 currentDisplay.textContent = "";
             }
             if (!currentDisplay.textContent.includes(".")) {
-                if (currentDisplay.textContent === "") {
+                if (!currentDisplay.textContent) {
                     currentDisplay.textContent = "0"
                 }
                 currentDisplay.textContent += btn.textContent;
