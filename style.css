@@ -130,8 +130,8 @@ button:active{
 }
 #prompt{
     position: absolute;
-    font-size: 18px;
-    margin-top: 550px;
+    font-size: 15px;
+    margin-top: 570px;
 }
 span{
     color: rgba(255, 255, 255, 0.9);
