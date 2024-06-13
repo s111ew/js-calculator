@@ -91,14 +91,10 @@ function dragElement(elmnt) {
 //   }, typingSpeed * text.length + delayBetween);
 // }, 300)
 
-window.onload = setTimeout(() => {
-  let calc = document.querySelector("#calcContainer");
-  calc.classList.add("shake")
-  setTimeout(() => {
-    body = document.querySelector("body");
-    body.classList.remove("darken");
-    prompt = document.querySelector("#prompt");
-    prompt.remove();
-  }, 2500)
-
-}, 600)
+window.onload = () => {
+  const calc = document.querySelector("#calcContainer");
+  const prompt = document.querySelector("#prompt");
+  
+  calc.addEventListener("mousedown", () => { prompt.remove();
+  });
+}

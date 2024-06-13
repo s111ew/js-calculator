@@ -11,13 +11,10 @@ body {
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center center fixed;
-   color: rgba(255, 255, 255, 0.6);
+   color: rgba(255, 255, 255, 0.7);
    text-shadow: 0 1.3px rgba(60, 57, 57, 0.2);
    user-select: none;
    overflow: hidden; 
-}
-.darken{
-    backdrop-filter: brightness(70%);
 }
 #calcContainer{
     position: absolute;
@@ -32,15 +29,6 @@ body {
     border-radius: 5%/3%;
     cursor: move;
     z-index: 0;
-}
-@keyframes shake {
-    0% { transform: translateX(0px); }
-    50% { transform: translateX(-50px); }
-    100% { transform: translateX(0px); }
-
-}
-.shake{
-    animation: shake 1600ms ease-in-out;
 }
 #display{
     width: 265px;
@@ -144,6 +132,9 @@ button:active{
     position: absolute;
     font-size: 18px;
     margin-top: 550px;
+}
+span{
+    color: rgba(255, 255, 255, 0.9);
 }
 footer{
     align-self: flex-end;
