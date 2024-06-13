@@ -94,7 +94,13 @@ function dragElement(elmnt) {
 window.onload = () => {
   const calc = document.querySelector("#calcContainer");
   const prompt = document.querySelector("#prompt");
-  
-  calc.addEventListener("mousedown", () => { prompt.remove();
+
+  calc.addEventListener("mousedown", () => {
+    if (prompt) {
+      prompt.classList.add("fade-out");
+      prompt.addEventListener("transitionend", () => {
+        prompt.remove();
+      }, { once: true });
+    }
   });
 }

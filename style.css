@@ -34,7 +34,7 @@ body {
     width: 265px;
     height: 100px;
     margin-bottom: 20px;
-    border-radius: 2%/12%;
+    border-radius: 4%/12%;
     z-index: 1;
     cursor: default;
     display: flex;
@@ -132,6 +132,13 @@ button:active{
     position: absolute;
     font-size: 15px;
     margin-top: 570px;
+    background: rgba(59, 55, 55, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 5px 15px 5px 15px;
+    border-radius: 8%/50%;
 }
 span{
     color: rgba(255, 255, 255, 0.9);
@@ -144,3 +151,7 @@ footer{
     align-items: center;
     padding-bottom: 6px;
 }
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out; /* 1 second fade out */
+  }
