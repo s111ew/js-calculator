@@ -15,13 +15,15 @@ body {
    text-shadow: 0 1.3px rgba(60, 57, 57, 0.2);
    user-select: none;
 }
+.darken{
+    backdrop-filter: brightness(70%);
+}
 #calcContainer{
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     box-sizing: border-box;
     width: 320px;
     height: auto;
@@ -29,6 +31,15 @@ body {
     border-radius: 5%/3%;
     cursor: move;
     z-index: 0;
+}
+@keyframes shake {
+    0% { transform: translateX(0px); }
+    50% { transform: translateX(-50px); }
+    100% { transform: translateX(0px); }
+
+}
+.shake{
+    animation: shake 1600ms ease-in-out;
 }
 #display{
     width: 265px;
@@ -127,6 +138,11 @@ button:active{
 .operator:active,
 .utility:active{
     background: linear-gradient(135deg, rgba(228, 155, 66, 0.7),rgba(230, 161, 12, 0.9));
+}
+#prompt{
+    position: absolute;
+    font-size: 18px;
+    margin-top: 550px;
 }
 footer{
     align-self: flex-end;

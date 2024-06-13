@@ -60,31 +60,45 @@ function dragElement(elmnt) {
   }
 }
 
-window.onload = setTimeout(function() {
-  let box = document.querySelector("#stored");
-  let text = "Try moving me";
-  let typingSpeed = 90;
-  let delayBetween = 550;
-  let deletingSpeed = 90;
+//Old load animation ---->
 
-  function typeText() {
-    for (let i = 0; i <= text.length; i++) {
-      setTimeout(function() {
-        box.textContent = text.substring(0, i);
-      }, i * typingSpeed);
-    }
-  }
+// window.onload = setTimeout(function() {
+//   let box = document.querySelector("#stored");
+//   let text = "Try moving me";
+//   let typingSpeed = 90;
+//   let delayBetween = 550;
+//   let deletingSpeed = 90;
 
-  function deleteText() {
-    for (let i = 0; i <= text.length; i++) {
-      setTimeout(function() {
-        box.textContent = text.substring(0, text.length - i);
-      }, i * deletingSpeed);
-    }
-  }
+//   function typeText() {
+//     for (let i = 0; i <= text.length; i++) {
+//       setTimeout(function() {
+//         box.textContent = text.substring(0, i);
+//       }, i * typingSpeed);
+//     }
+//   }
 
-  typeText();
-  setTimeout(function() {
-    deleteText();
-  }, typingSpeed * text.length + delayBetween);
-}, 300)
+//   function deleteText() {
+//     for (let i = 0; i <= text.length; i++) {
+//       setTimeout(function() {
+//         box.textContent = text.substring(0, text.length - i);
+//       }, i * deletingSpeed);
+//     }
+//   }
+
+//   typeText();
+//   setTimeout(function() {
+//     deleteText();
+//   }, typingSpeed * text.length + delayBetween);
+// }, 300)
+
+window.onload = setTimeout(() => {
+  let calc = document.querySelector("#calcContainer");
+  calc.classList.add("shake")
+  setTimeout(() => {
+    body = document.querySelector("body");
+    body.classList.remove("darken");
+    prompt = document.querySelector("#prompt");
+    prompt.remove();
+  }, 2500)
+
+}, 600)
