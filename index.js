@@ -106,7 +106,13 @@ allButtons.forEach(btn => {
                 operation = "";
             }
         } else if (btn.id === "decimal") {
+            if(currentDisplay.textContent === "Error" || currentDisplay.textContent === "Too Big!") {
+                currentDisplay.textContent = "";
+            }
             if (!currentDisplay.textContent.includes(".")) {
+                if (currentDisplay.textContent === "") {
+                    currentDisplay.textContent = "0"
+                }
                 currentDisplay.textContent += btn.textContent;
             }
         } else {
